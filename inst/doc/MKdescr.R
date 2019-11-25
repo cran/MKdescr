@@ -40,12 +40,12 @@ par(mfrow = c(1,2))
 qboxplot(x, main = "1st and 3rd quartile")
 boxplot(x, main = "Lower and upper hinge")
 
-## ------------------------------------------------------------------------
+## ---- fig.width = 7, fig.height = 7--------------------------------------
 curve(log, from = -3, to = 5)
 curve(glog, from = -3, to = 5, add = TRUE, col = "orange")
 legend("topleft", fill = c("black", "orange"), legend = c("log", "glog"))
 
-## ------------------------------------------------------------------------
+## ---- fig.width = 7, fig.height = 7--------------------------------------
 curve(log10(x), from = -3, to = 5)
 curve(glog10(x), from = -3, to = 5, add = TRUE, col = "orange")
 legend("topleft", fill = c("black", "orange"), legend = c("log10", "glog10"))
