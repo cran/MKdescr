@@ -95,6 +95,50 @@ iqrSNR(x)
 ```
 
 
+## Standardized Mean Difference
+We compute the standardized mean difference also known as Cohen's und Hogdes' g.
+In addition, there is a new proposal in case of unequal variances.
+```{r}
+n1 <- 100
+x <- rnorm(100)
+n2 <- 150
+y <- rnorm(n2, mean = 3, sd = 2)
+## true value
+(0-3)/sqrt((1 + n1/n2*2^2)/(n1/n2+1))
+## estimates
+## Aoki's e
+SMD(x, y)
+## Hedges' g
+SMD(x, y, var.equal = TRUE)
+## standardized test statistic of Welch's t-test
+SMD(x, y, bias.cor = FALSE)
+## Cohen's d
+SMD(x, y, bias.cor = FALSE, var.equal = TRUE)
+```
+
+
+## z-Score
+There are functions to compute z-score and robust variants of z-score based
+on median and MAD, respectively median and IQR.
+```{r}
+## 10% outliers
+out <- rbinom(100, prob = 0.1, size = 1)
+sum(out)
+x <- (1-out)*rnorm(100, mean = 10, sd = 2) + out*25
+z <- zscore(x)
+z.med <- medZscore(x)
+z.iqr <- iqrZscore(x)
+## mean without outliers (should by close to 0)
+mean(z[!out])
+mean(z.med[!out])
+mean(z.iqr[!out])
+## sd without outliers (should by close to 1)
+sd(z[!out])
+sd(z.med[!out])
+sd(z.iqr[!out])
+```
+
+
 ## Box- and Whisker-Plot
 In contrast to the standard function boxplot which uses the lower and upper 
 hinge for defining the box and the whiskers, the function qboxplot uses the
