@@ -3,6 +3,13 @@
 ###############################################################################
 
 ###########################################################
+## Version 0.7
+###########################################################
+- added functions to illustrate quantiles and boxplots.
+- updated links from http to https
+
+
+###########################################################
 ## Version 0.6
 ###########################################################
 - changed behaviour of CV functions in case of NA values to correct a minor
@@ -11,6 +18,7 @@
 - introduced functions zscore, medZscore and iqrZscore to compute z-scores
 - introduced function SMD for calculating the standardized mean difference
   with and without equal variances
+
 
 ###########################################################
 ## Version 0.5

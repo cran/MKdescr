@@ -1,6 +1,16 @@
 ## -----------------------------------------------------------------------------
 library(MKdescr)
 
+## ---- fig.width=7, fig.height=7-----------------------------------------------
+x <- 1:10
+illustrate.quantile(x, alpha = 0.2)
+illustrate.quantile(x, alpha = 0.5, type = 7)
+illustrate.quantile(x, alpha = 0.8, type = c(2, 7))
+
+## ---- fig.width=7, fig.height=7-----------------------------------------------
+set.seed(123)
+illustrate.boxplot(rt(50, df = 5))
+
 ## -----------------------------------------------------------------------------
 x <- rnorm(100)
 IQrange(x)
@@ -98,7 +108,7 @@ cor(res$Var1, res$Var2)
 thyroid(TSH = 1.5, fT3 = 2.5, fT4 = 14, TSHref = c(0.2, 3.0),
         fT3ref = c(1.7, 4.2), fT4ref = c(7.6, 15.0))
 
-## -----------------------------------------------------------------------------
+## ---- fig.width=7, fig.height=7-----------------------------------------------
 library(ggplot2)
 data(mpg)
 p1 <- ggplot(mpg, aes(displ, hwy)) + geom_point()
@@ -108,7 +118,7 @@ p1 + scale_x_glog10()
 p1 + scale_y_log10()
 p1 + scale_y_glog10()
 
-## -----------------------------------------------------------------------------
+## ---- fig.width=7, fig.height=7-----------------------------------------------
 x <- matrix(rnorm(1000, mean = 10), nrow = 10)
 g1 <- rep("control", 10)
 y1 <- matrix(rnorm(500, mean = 11.25), nrow = 10)
@@ -131,7 +141,6 @@ ggplot(ps, aes(x = logfc, y = pvals)) + geom_point() +
     ylab("-log10(p value)") + ggtitle("A Volcano Plot")
 
 ## ---- fig.width=7, fig.height=7-----------------------------------------------
-library(ggplot2)
 ## some random data
 test <- data.frame(x = rnorm(10), y = rnorm(10), z = rnorm(10))
 test.long <- melt.long(test)
