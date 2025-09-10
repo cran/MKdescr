@@ -1,13 +1,13 @@
 ## -----------------------------------------------------------------------------
 library(MKdescr)
 
-## ---- fig.width=7, fig.height=7-----------------------------------------------
+## ----fig.width=7, fig.height=7------------------------------------------------
 x <- 1:10
 illustrate.quantile(x, alpha = 0.2)
 illustrate.quantile(x, alpha = 0.5, type = 7)
 illustrate.quantile(x, alpha = 0.8, type = c(2, 7))
 
-## ---- fig.width=7, fig.height=7-----------------------------------------------
+## ----fig.width=7, fig.height=7------------------------------------------------
 set.seed(123)
 illustrate.boxplot(rt(50, df = 5))
 
@@ -81,18 +81,18 @@ sd(z[!out])
 sd(z.med[!out])
 sd(z.iqr[!out])
 
-## ---- fig.width=7, fig.height=7-----------------------------------------------
+## ----fig.width=7, fig.height=7------------------------------------------------
 x <- rt(10, df = 3)
 par(mfrow = c(1,2))
 qboxplot(x, main = "1st and 3rd quartile")
 boxplot(x, main = "Lower and upper hinge")
 
-## ---- fig.width = 7, fig.height = 7-------------------------------------------
+## ----fig.width = 7, fig.height = 7--------------------------------------------
 curve(log, from = -3, to = 5)
 curve(glog, from = -3, to = 5, add = TRUE, col = "orange")
 legend("topleft", fill = c("black", "orange"), legend = c("log", "glog"))
 
-## ---- fig.width = 7, fig.height = 7-------------------------------------------
+## ----fig.width = 7, fig.height = 7--------------------------------------------
 curve(log10(x), from = -3, to = 5)
 curve(glog10(x), from = -3, to = 5, add = TRUE, col = "orange")
 legend("topleft", fill = c("black", "orange"), legend = c("log10", "glog10"))
@@ -103,15 +103,15 @@ inv.glog(glog(10, base = 3), base = 3)
 inv.glog10(glog10(10))
 inv.glog2(glog2(10))
 
-## ---- fig.width=7, fig.height=7-----------------------------------------------
+## ----fig.width=7, fig.height=7------------------------------------------------
 res <- simCorVars(n = 500, r = 0.8)
 cor(res$Var1, res$Var2)
 
-## ---- fig.width=7, fig.height=7-----------------------------------------------
+## ----fig.width=7, fig.height=7------------------------------------------------
 thyroid(TSH = 1.5, fT3 = 2.5, fT4 = 14, TSHref = c(0.2, 3.0),
         fT3ref = c(1.7, 4.2), fT4ref = c(7.6, 15.0))
 
-## ---- fig.width=7, fig.height=7-----------------------------------------------
+## ----fig.width=7, fig.height=7------------------------------------------------
 library(ggplot2)
 data(mpg)
 p1 <- ggplot(mpg, aes(displ, hwy)) + geom_point()
@@ -121,7 +121,7 @@ p1 + scale_x_glog10()
 p1 + scale_y_log10()
 p1 + scale_y_glog10()
 
-## ---- fig.width=7, fig.height=7-----------------------------------------------
+## ----fig.width=7, fig.height=7------------------------------------------------
 x <- matrix(rnorm(1000, mean = 10), nrow = 10)
 g1 <- rep("control", 10)
 y1 <- matrix(rnorm(500, mean = 11.25), nrow = 10)
@@ -143,7 +143,7 @@ ggplot(ps, aes(x = logfc, y = pvals)) + geom_point() +
     geom_vline(xintercept = c(-0.1, 0.1)) + xlab("log-fold change") +
     ylab("-log10(p value)") + ggtitle("A Volcano Plot")
 
-## ---- fig.width=7, fig.height=7-----------------------------------------------
+## ----fig.width=7, fig.height=7------------------------------------------------
 ## some random data
 test <- data.frame(x = rnorm(10), y = rnorm(10), z = rnorm(10))
 test.long <- melt.long(test)
